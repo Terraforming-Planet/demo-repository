@@ -8,6 +8,14 @@ export async function generateImage({ prompt, size = '1024x1024' }) {
   }
 
   const response = await fetch(`${API_BASE.replace(/\/$/, '')}/generate`, {
+export const WORKER_BASE_URL = (import.meta?.env?.VITE_WORKER_URL || '').trim() || '';
+
+export async function generateImage({ prompt, size = '1024x1024' }) {
+  if (!WORKER_BASE_URL) {
+    throw new Error('Missing VITE_WORKER_URL (set it to your Worker base URL)');
+  }
+
+  const response = await fetch(`${WORKER_BASE_URL.replace(/\/$/, '')}/generate`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ prompt, size })
@@ -32,4 +40,5 @@ export async function generateImage({ prompt, size = '1024x1024' }) {
   }
 
   throw new Error('Brak danych obrazu w odpowiedzi API.');
+  return json;
 }
