@@ -256,6 +256,30 @@ function buildStyledPrompt(prompt, style) {
   };
   const suffix = styleMap[style] ?? style;
   return `${prompt}\nStyl: ${suffix}. Edukacyjna wizualizacja terraformingu lub pojazdów PV.`;
+async function generateImage(payload) {
+  const apiBase = import.meta.env.VITE_API_BASE ?? '';
+  const response = await fetch(`${apiBase}/api/generate`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({ message: 'Nieznany błąd.' }));
+    throw new Error(error.message || 'Błąd generowania obrazu.');
+  }
+
+  const data = await response.json();
+  if (!data.ok) {
+    throw new Error(data.message || 'API zwróciło błąd.');
+  }
+
+  if (data.imageBase64) {
+    return `data:image/png;base64,${data.imageBase64}`;
+  }
+  return data.imageUrl;
 }
 
 function updateHistoryEntry(entry) {
@@ -281,6 +305,16 @@ labForm.addEventListener('submit', async (event) => {
     const styledPrompt = buildStyledPrompt(prompt, styleInput.value);
     const imageUrl = await generateImage({
       prompt: styledPrompt,
+      size: formatInput.value
+    });
+    const out = await generateImage({
+      prompt: styledPrompt,
+      size: formatInput.value
+    });
+    const imageUrl = out.data_url;
+    const imageUrl = await generateImage({
+      prompt,
+      style: styleInput.value,
       size: formatInput.value
     });
     updateOutput({ imageUrl, prompt });
