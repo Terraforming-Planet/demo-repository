@@ -1,0 +1,6 @@
+name = "terraforming-planet-worker"
+main = "src/index.js"
+compatibility_date = "2024-09-01"
+
+[vars]
+OPENAI_API_KEY = ""
