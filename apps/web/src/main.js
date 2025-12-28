@@ -62,21 +62,27 @@ const galleryItems = [
 const storageKey = 'terraforming-lab-history';
 const historyLimit = 8;
 
+// DOM
 const terraformingContainer = document.getElementById('terraforming-cards');
 const pvContainer = document.getElementById('pv-grid');
 const promptList = document.getElementById('prompt-list');
+
 const labForm = document.getElementById('lab-form');
 const promptInput = document.getElementById('prompt');
 const styleInput = document.getElementById('style');
 const formatInput = document.getElementById('format');
+
 const outputPreview = document.getElementById('output-preview');
 const downloadBtn = document.getElementById('download-btn');
 const copyBtn = document.getElementById('copy-btn');
 const notesInput = document.getElementById('notes');
+
 const historyGrid = document.getElementById('history-grid');
 const labStatus = document.getElementById('lab-status');
+
 const galleryGrid = document.getElementById('gallery-grid');
 const filterContainer = document.getElementById('gallery-filters');
+
 const modal = document.getElementById('gallery-modal');
 const modalClose = document.getElementById('modal-close');
 const modalImage = document.getElementById('modal-image');
@@ -133,6 +139,7 @@ function renderPromptSeeds() {
 
   promptList.querySelectorAll('button').forEach((button) => {
     button.addEventListener('click', () => {
+      if (!promptInput) return;
       promptInput.value = button.textContent ?? '';
       promptInput.focus();
     });
@@ -200,6 +207,10 @@ function updateOutput({ imageUrl, prompt }) {
   }
 }
 
+function setStatus(text) {
+  if (labStatus) labStatus.textContent = text;
+}
+
 function buildStyledPrompt(prompt, style) {
   const styleMap = {
     realistyczny: 'realistyczny render',
@@ -214,45 +225,17 @@ function buildStyledPrompt(prompt, style) {
 function updateHistoryEntry(entry) {
   const history = loadHistory();
   history.unshift(entry);
-  const trimmed = history.slice(0, historyLimit);
-  saveHistory(trimmed);
+  saveHistory(history.slice(0, historyLimit));
   renderHistory();
 }
 
-if (labForm) {
-  labForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const prompt = (promptInput?.value ?? '').trim();
-    if (!prompt) {
-      if (labStatus) labStatus.textContent = 'Najpierw wpisz prompt.';
-      return;
-    }
-
-    if (labStatus) labStatus.textContent = 'Generowanie obrazu...';
-    updateOutput({ imageUrl: null, prompt: null });
-
-    try {
-      const styledPrompt = buildStyledPrompt(prompt, styleInput?.value ?? 'realistyczny');
-
-      const out = await generateImage({
-        prompt: styledPrompt,
-        size: formatInput?.value ?? '1024x1024'
-      });
-
-      const imageUrl = out?.data_url;
-      if (!imageUrl) throw new Error('Brak obrazu w odpowiedzi API (data_url).');
-
-      updateOutput({ imageUrl, prompt: styledPrompt });
-
-      const label = prompt.length > 52 ? `${prompt.slice(0, 48)}…` : prompt;
-      updateHistoryEntry({ label, imageUrl, prompt: styledPrompt });
-
-      if (labStatus) labStatus.textContent = 'Gotowe! Zapisz wnioski i dodaj do historii.';
-    } catch (error) {
-      if (labStatus) labStatus.textContent = error?.message || 'Błąd generowania.';
-    }
-  });
+async function safeGenerate({ prompt, size, style }) {
+  const styledPrompt = buildStyledPrompt(prompt, style);
+  const imageUrl = await generateImage({ prompt: styledPrompt, size });
+  if (!imageUrl || typeof imageUrl !== 'string') {
+    throw new Error('API nie zwróciło poprawnego URL obrazu.');
+  }
+  return { imageUrl, styledPrompt };
 }
 
 function renderGallery(filters = ['wszystkie']) {
@@ -276,7 +259,9 @@ function renderGallery(filters = ['wszystkie']) {
 
   galleryGrid.querySelectorAll('.gallery-item').forEach((item) => {
     item.addEventListener('click', () => {
-      modal?.classList.add('active');
+      if (!modal) return;
+      modal.classList.add('active');
+
       if (modalImage) modalImage.innerHTML = `<span>${item.dataset.title}</span>`;
       if (modalText) {
         modalText.innerHTML = `
@@ -309,24 +294,60 @@ function renderFilters() {
   });
 }
 
-if (modalClose) {
-  modalClose.addEventListener('click', () => {
-    modal?.classList.remove('active');
-  });
+function wireModal() {
+  if (modalClose) {
+    modalClose.addEventListener('click', () => {
+      modal?.classList.remove('active');
+    });
+  }
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+  }
 }
 
-if (modal) {
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.classList.remove('active');
+function wireLab() {
+  if (!labForm) return;
+
+  labForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const prompt = (promptInput?.value ?? '').trim();
+    if (!prompt) {
+      setStatus('Najpierw wpisz prompt.');
+      return;
+    }
+
+    const style = styleInput?.value ?? 'realistyczny';
+    const size = formatInput?.value ?? '1024x1024';
+
+    setStatus('Generowanie obrazu...');
+    updateOutput({ imageUrl: null, prompt: null });
+
+    try {
+      const { imageUrl, styledPrompt } = await safeGenerate({ prompt, size, style });
+
+      updateOutput({ imageUrl, prompt: styledPrompt });
+
+      const label = prompt.length > 52 ? `${prompt.slice(0, 48)}…` : prompt;
+      updateHistoryEntry({ label, imageUrl, prompt: styledPrompt, notes: notesInput?.value ?? '' });
+
+      setStatus('Gotowe!');
+    } catch (err) {
+      setStatus(err?.message || 'Błąd generowania.');
     }
   });
 }
 
-// Render everything
+// INIT
 renderTerraformingCards();
 renderPvSections();
 renderPromptSeeds();
 renderHistory();
 renderFilters();
 renderGallery();
+wireModal();
+wireLab();
