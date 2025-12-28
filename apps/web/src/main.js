@@ -2,61 +2,33 @@ import './style.css';
 import { generateImage } from './lib/api.js';
 
 const terraformingTopics = [
-  {
-    icon: '🌊',
-    title: 'Retencja i mokradła',
-    text: 'Odbudowa terenów podmokłych dla magazynowania wody.'
-  },
-  {
-    icon: '🧱',
-    title: 'Wały i bariery',
-    text: 'Bezpieczne zabezpieczenia przeciwpowodziowe i wydmowe.'
-  },
-  {
-    icon: '🌿',
-    title: 'Rekultywacja gleby',
-    text: 'Przywracanie żyzności gleb i poprawa bioróżnorodności.'
-  },
-  {
-    icon: '🏞️',
-    title: 'Odtwarzanie delt',
-    text: 'Modelowanie ujść rzek i ochronę obszarów przybrzeżnych.'
-  },
-  {
-    icon: '🌀',
-    title: 'Kanały i retencja',
-    text: 'Sterowanie przepływami wody w czasie suszy i powodzi.'
-  },
-  {
-    icon: '🏙️',
-    title: 'Miasta przyszłości',
-    text: 'Zielone przestrzenie i infrastruktura adaptacyjna.'
-  }
+  { icon: '🌊', title: 'Retencja i mokradła', text: 'Odbudowa terenów podmokłych dla magazynowania wody.' },
+  { icon: '🧱', title: 'Wały i bariery', text: 'Bezpieczne zabezpieczenia przeciwpowodziowe i wydmowe.' },
+  { icon: '🌿', title: 'Rekultywacja gleby', text: 'Przywracanie żyzności gleb i poprawa bioróżnorodności.' },
+  { icon: '🏞️', title: 'Odtwarzanie delt', text: 'Modelowanie ujść rzek i ochronę obszarów przybrzeżnych.' },
+  { icon: '🌀', title: 'Kanały i retencja', text: 'Sterowanie przepływami wody w czasie suszy i powodzi.' },
+  { icon: '🏙️', title: 'Miasta przyszłości', text: 'Zielone przestrzenie i infrastruktura adaptacyjna.' }
 ];
 
 const pvSections = [
   {
     title: 'Pojazdy terenowe',
-    description:
-      'Quady i pojazdy gąsienicowe z panelami PV wspierające prace w terenie bez dostępu do sieci.',
+    description: 'Quady i pojazdy gąsienicowe z panelami PV wspierające prace w terenie bez dostępu do sieci.',
     images: ['Wydmy', 'Wały', 'Skarpy']
   },
   {
     title: 'Busy i transport',
-    description:
-      'Mobilne huby energetyczne z panelami na dachu, wspierające logistykę i ewakuację.',
+    description: 'Mobilne huby energetyczne z panelami na dachu, wspierające logistykę i ewakuację.',
     images: ['Transport', 'Mobilna stacja', 'Konwoje']
   },
   {
     title: 'Maszyny budowlane',
-    description:
-      'Koparki i ładowarki, które ładują się w trakcie pracy i zasilają czujniki środowiskowe.',
+    description: 'Koparki i ładowarki, które ładują się w trakcie pracy i zasilają czujniki środowiskowe.',
     images: ['Koparka', 'Ładowarka', 'Mini koparka']
   },
   {
     title: 'Roboty i drony',
-    description:
-      'Autonomiczne roboty z PV do monitoringu gleby, wody i roślinności.',
+    description: 'Autonomiczne roboty z PV do monitoringu gleby, wody i roślinności.',
     images: ['Drony', 'Roboty', 'Czujniki']
   }
 ];
@@ -75,56 +47,16 @@ const promptSeeds = [
 ];
 
 const galleryItems = [
-  {
-    title: 'System retencji wody',
-    prompt: promptSeeds[0],
-    tags: ['terraformowanie', 'hydrologia']
-  },
-  {
-    title: 'Rekultywacja terenów poprzemysłowych',
-    prompt: promptSeeds[1],
-    tags: ['terraformowanie']
-  },
-  {
-    title: 'Kanały przeciwpowodziowe',
-    prompt: promptSeeds[2],
-    tags: ['hydrologia']
-  },
-  {
-    title: 'Delta rzeki',
-    prompt: promptSeeds[3],
-    tags: ['terraformowanie', 'hydrologia']
-  },
-  {
-    title: 'Miasto przyszłości',
-    prompt: promptSeeds[4],
-    tags: ['miasta przyszłości']
-  },
-  {
-    title: 'Pojazd gąsienicowy PV',
-    prompt: promptSeeds[5],
-    tags: ['PV-vehicle']
-  },
-  {
-    title: 'Bus PV',
-    prompt: promptSeeds[6],
-    tags: ['PV-vehicle']
-  },
-  {
-    title: 'Koparka PV',
-    prompt: promptSeeds[7],
-    tags: ['PV-vehicle']
-  },
-  {
-    title: 'Drony PV',
-    prompt: promptSeeds[8],
-    tags: ['PV-vehicle']
-  },
-  {
-    title: 'Roboty solarne',
-    prompt: promptSeeds[9],
-    tags: ['PV-vehicle', 'terraformowanie']
-  }
+  { title: 'System retencji wody', prompt: promptSeeds[0], tags: ['terraformowanie', 'hydrologia'] },
+  { title: 'Rekultywacja terenów poprzemysłowych', prompt: promptSeeds[1], tags: ['terraformowanie'] },
+  { title: 'Kanały przeciwpowodziowe', prompt: promptSeeds[2], tags: ['hydrologia'] },
+  { title: 'Delta rzeki', prompt: promptSeeds[3], tags: ['terraformowanie', 'hydrologia'] },
+  { title: 'Miasto przyszłości', prompt: promptSeeds[4], tags: ['miasta przyszłości'] },
+  { title: 'Pojazd gąsienicowy PV', prompt: promptSeeds[5], tags: ['PV-vehicle'] },
+  { title: 'Bus PV', prompt: promptSeeds[6], tags: ['PV-vehicle'] },
+  { title: 'Koparka PV', prompt: promptSeeds[7], tags: ['PV-vehicle'] },
+  { title: 'Drony PV', prompt: promptSeeds[8], tags: ['PV-vehicle'] },
+  { title: 'Roboty solarne', prompt: promptSeeds[9], tags: ['PV-vehicle', 'terraformowanie'] }
 ];
 
 const storageKey = 'terraforming-lab-history';
@@ -151,6 +83,7 @@ const modalImage = document.getElementById('modal-image');
 const modalText = document.getElementById('modal-text');
 
 function renderTerraformingCards() {
+  if (!terraformingContainer) return;
   terraformingContainer.innerHTML = terraformingTopics
     .map(
       (topic) => `
@@ -165,6 +98,7 @@ function renderTerraformingCards() {
 }
 
 function renderPvSections() {
+  if (!pvContainer) return;
   pvContainer.innerHTML = pvSections
     .map(
       (section) => `
@@ -191,6 +125,8 @@ function renderPvSections() {
 }
 
 function renderPromptSeeds() {
+  if (!promptList) return;
+
   promptList.innerHTML = promptSeeds
     .map((seed) => `<button type="button" class="prompt-chip">${seed}</button>`)
     .join('');
@@ -204,8 +140,12 @@ function renderPromptSeeds() {
 }
 
 function loadHistory() {
-  const stored = localStorage.getItem(storageKey);
-  return stored ? JSON.parse(stored) : [];
+  try {
+    const stored = localStorage.getItem(storageKey);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
 }
 
 function saveHistory(history) {
@@ -213,7 +153,9 @@ function saveHistory(history) {
 }
 
 function renderHistory() {
+  if (!historyGrid) return;
   const history = loadHistory();
+
   historyGrid.innerHTML = history
     .map(
       (item) => `
@@ -226,24 +168,35 @@ function renderHistory() {
 }
 
 function updateOutput({ imageUrl, prompt }) {
+  if (!outputPreview) return;
+
   outputPreview.innerHTML = imageUrl
     ? `<img src="${imageUrl}" alt="Wygenerowany obraz" loading="lazy" />`
     : '<span>Podgląd obrazu</span>';
-  downloadBtn.disabled = !imageUrl;
-  copyBtn.disabled = !prompt;
-  if (imageUrl) {
-    downloadBtn.onclick = () => {
-      const link = document.createElement('a');
-      link.href = imageUrl;
-      link.download = 'terraforming-planet.png';
-      link.click();
-    };
+
+  if (downloadBtn) downloadBtn.disabled = !imageUrl;
+  if (copyBtn) copyBtn.disabled = !prompt;
+
+  if (downloadBtn) {
+    downloadBtn.onclick = null;
+    if (imageUrl) {
+      downloadBtn.onclick = () => {
+        const link = document.createElement('a');
+        link.href = imageUrl;
+        link.download = 'terraforming-planet.png';
+        link.click();
+      };
+    }
   }
-  if (prompt) {
-    copyBtn.onclick = async () => {
-      await navigator.clipboard.writeText(prompt);
-      labStatus.textContent = 'Prompt skopiowany do schowka.';
-    };
+
+  if (copyBtn) {
+    copyBtn.onclick = null;
+    if (prompt) {
+      copyBtn.onclick = async () => {
+        await navigator.clipboard.writeText(prompt);
+        if (labStatus) labStatus.textContent = 'Prompt skopiowany do schowka.';
+      };
+    }
   }
 }
 
@@ -256,30 +209,6 @@ function buildStyledPrompt(prompt, style) {
   };
   const suffix = styleMap[style] ?? style;
   return `${prompt}\nStyl: ${suffix}. Edukacyjna wizualizacja terraformingu lub pojazdów PV.`;
-async function generateImage(payload) {
-  const apiBase = import.meta.env.VITE_API_BASE ?? '';
-  const response = await fetch(`${apiBase}/api/generate`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  });
-
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({ message: 'Nieznany błąd.' }));
-    throw new Error(error.message || 'Błąd generowania obrazu.');
-  }
-
-  const data = await response.json();
-  if (!data.ok) {
-    throw new Error(data.message || 'API zwróciło błąd.');
-  }
-
-  if (data.imageBase64) {
-    return `data:image/png;base64,${data.imageBase64}`;
-  }
-  return data.imageUrl;
 }
 
 function updateHistoryEntry(entry) {
@@ -290,39 +219,45 @@ function updateHistoryEntry(entry) {
   renderHistory();
 }
 
-labForm.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const prompt = promptInput.value.trim();
-  if (!prompt) {
-    labStatus.textContent = 'Najpierw wpisz prompt.';
-    return;
-  }
+if (labForm) {
+  labForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-  labStatus.textContent = 'Generowanie obrazu...';
-  updateOutput({ imageUrl: null, prompt: null });
+    const prompt = (promptInput?.value ?? '').trim();
+    if (!prompt) {
+      if (labStatus) labStatus.textContent = 'Najpierw wpisz prompt.';
+      return;
+    }
 
-  try {
-    const styledPrompt = buildStyledPrompt(prompt, styleInput.value);
-    const out = await generateImage({
-      prompt: styledPrompt,
-      size: formatInput.value
-    });
-    const imageUrl = out.data_url;
-    const imageUrl = await generateImage({
-      prompt,
-      style: styleInput.value,
-      size: formatInput.value
-    });
-    updateOutput({ imageUrl, prompt });
-    const label = prompt.length > 52 ? `${prompt.slice(0, 48)}…` : prompt;
-    updateHistoryEntry({ label, imageUrl, prompt });
-    labStatus.textContent = 'Gotowe! Zapisz wnioski i dodaj do historii.';
-  } catch (error) {
-    labStatus.textContent = error.message;
-  }
-});
+    if (labStatus) labStatus.textContent = 'Generowanie obrazu...';
+    updateOutput({ imageUrl: null, prompt: null });
+
+    try {
+      const styledPrompt = buildStyledPrompt(prompt, styleInput?.value ?? 'realistyczny');
+
+      const out = await generateImage({
+        prompt: styledPrompt,
+        size: formatInput?.value ?? '1024x1024'
+      });
+
+      const imageUrl = out?.data_url;
+      if (!imageUrl) throw new Error('Brak obrazu w odpowiedzi API (data_url).');
+
+      updateOutput({ imageUrl, prompt: styledPrompt });
+
+      const label = prompt.length > 52 ? `${prompt.slice(0, 48)}…` : prompt;
+      updateHistoryEntry({ label, imageUrl, prompt: styledPrompt });
+
+      if (labStatus) labStatus.textContent = 'Gotowe! Zapisz wnioski i dodaj do historii.';
+    } catch (error) {
+      if (labStatus) labStatus.textContent = error?.message || 'Błąd generowania.';
+    }
+  });
+}
 
 function renderGallery(filters = ['wszystkie']) {
+  if (!galleryGrid) return;
+
   const active = filters[0];
   const items =
     active === 'wszystkie'
@@ -341,17 +276,21 @@ function renderGallery(filters = ['wszystkie']) {
 
   galleryGrid.querySelectorAll('.gallery-item').forEach((item) => {
     item.addEventListener('click', () => {
-      modal.classList.add('active');
-      modalImage.innerHTML = `<span>${item.dataset.title}</span>`;
-      modalText.innerHTML = `
-        <h3>${item.dataset.title}</h3>
-        <p><strong>Prompt:</strong> ${item.dataset.prompt}</p>
-      `;
+      modal?.classList.add('active');
+      if (modalImage) modalImage.innerHTML = `<span>${item.dataset.title}</span>`;
+      if (modalText) {
+        modalText.innerHTML = `
+          <h3>${item.dataset.title}</h3>
+          <p><strong>Prompt:</strong> ${item.dataset.prompt}</p>
+        `;
+      }
     });
   });
 }
 
 function renderFilters() {
+  if (!filterContainer) return;
+
   const tags = ['wszystkie', 'terraformowanie', 'PV-vehicle', 'hydrologia', 'miasta przyszłości'];
   filterContainer.innerHTML = tags
     .map(
@@ -370,16 +309,21 @@ function renderFilters() {
   });
 }
 
-modalClose.addEventListener('click', () => {
-  modal.classList.remove('active');
-});
+if (modalClose) {
+  modalClose.addEventListener('click', () => {
+    modal?.classList.remove('active');
+  });
+}
 
-modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    modal.classList.remove('active');
-  }
-});
+if (modal) {
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.classList.remove('active');
+    }
+  });
+}
 
+// Render everything
 renderTerraformingCards();
 renderPvSections();
 renderPromptSeeds();
