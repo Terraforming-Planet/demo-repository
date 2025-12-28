@@ -1,4 +1,4 @@
-const WORKER_URL = "https://terraforming-image-api.username.workers.dev";
+const WORKER_URL = "terraformingplwnetgenimg.terraforming-planet.workers.dev";
 
 const stageSelect = document.getElementById("stage");
 const planetSelect = document.getElementById("planet");
