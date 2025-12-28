@@ -1,3 +1,5 @@
+const WORKER_URL =
+  "https://terraformingplwnetgenimg.terraforming-planet.workers.dev";
 const WORKER_URL = "https://terraformingplwnetgenimg.terraforming-planet.workers.dev";
 
 const stageSelect = document.getElementById("stage");
@@ -42,10 +44,23 @@ const renderImage = (url) => {
   output.appendChild(img);
 };
 
+const buildPrompt = (stage, planet, style) => `
+Cinematic scientific visualization of a ${planetMap[planet]} planet.
+Terraforming stage: ${stageMap[stage]}.
+${styleMap[style]}
+Atmosphere formation, water cycles, vegetation growth, advanced technology, realistic lighting, space view, no text.
+`;
+
 button.addEventListener("click", async () => {
   const stage = stageSelect.value;
   const planet = planetSelect.value;
   const style = styleSelect.value;
+  const prompt = buildPrompt(stage, planet, style);
+
+  setLoading(true);
+  renderMessage("Generuję obraz...");
+
+  try {
 
   const prompt = `
 Cinematic scientific visualization of a ${planetMap[planet]} planet.
@@ -65,6 +80,26 @@ Atmosphere formation, water cycles, vegetation growth, advanced technology, real
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Worker error: ${response.status} ${errorText}`);
+    }
+
+    const data = await response.json();
+
+    if (data?.error) {
+      throw new Error(data.error);
+    }
+
+    if (!data?.image) {
+      throw new Error("Brak URL obrazka w odpowiedzi.");
+    }
+
+    renderImage(data.image);
+  } catch (error) {
+    console.error(error);
+    renderMessage(
+      "Nie udało się wygenerować obrazu. Sprawdź Worker, URL i klucz API."
+    );
       throw new Error(`Worker error: ${response.status}`);
     }
 
