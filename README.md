@@ -44,6 +44,7 @@ Terraforming-Planet to edukacyjny projekt o kształtowaniu terenu, retencji wody
 
 ### Web
 
+1. Ustaw `VITE_API_BASE` (zobacz `apps/web/.env.example`).
 1. Ustaw `VITE_WORKER_URL` (zobacz `apps/web/.env.example`).
 2. Zainstaluj i uruchom:
    ```bash
@@ -51,6 +52,7 @@ Terraforming-Planet to edukacyjny projekt o kształtowaniu terenu, retencji wody
    npm run dev
    ```
 
+> Uwaga: modele GPT Image zwracają base64. Aplikacja używa `data_url` z workera (bez tymczasowego URL).
 > Uwaga: modele GPT Image zwracają base64. Aplikacja używa pola `data_url` z workera (bez tymczasowego URL).
 
 ## Jak korzystać z generatora
@@ -94,6 +96,7 @@ Worker API działa niezależnie od frontendu i chroni klucz OpenAI.
    - **Build command**: `npm run build`
    - **Build output**: `apps/web/dist`
    - **Root directory**: `apps/web`
+3. Jeśli używasz workera, ustaw `VITE_API_BASE` na adres workera.
 3. Jeśli używasz workera, ustaw `VITE_WORKER_URL` na adres workera.
 
 ## Zmienne środowiskowe
@@ -101,6 +104,14 @@ Worker API działa niezależnie od frontendu i chroni klucz OpenAI.
 Przykład konfiguracji znajdziesz w `.env.example` oraz `apps/web/.env.example`.
 
 - `OPENAI_API_KEY` — klucz API dla generowania obrazów w workerze.
+- `VITE_API_BASE` — adres API workera, np. `https://twoj-worker.workers.dev`.
+
+## Najczęstsze problemy (FAQ)
+
+**Nie widzę obrazu po kliknięciu Generuj.**
+- Sprawdź, czy worker działa i czy `VITE_API_BASE` jest ustawione poprawnie.
+
+**Błąd "Missing OPENAI_API_KEY".**
 - `VITE_WORKER_URL` — adres API workera, np. `https://twoj-worker.workers.dev`.
 3. Jeśli używasz workera, wdroż go przez `wrangler deploy` w katalogu `apps/worker` i ustaw `VITE_API_BASE` na adres workera.
 

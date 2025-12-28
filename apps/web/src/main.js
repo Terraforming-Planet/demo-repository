@@ -303,6 +303,10 @@ labForm.addEventListener('submit', async (event) => {
 
   try {
     const styledPrompt = buildStyledPrompt(prompt, styleInput.value);
+    const imageUrl = await generateImage({
+      prompt: styledPrompt,
+      size: formatInput.value
+    });
     const out = await generateImage({
       prompt: styledPrompt,
       size: formatInput.value
