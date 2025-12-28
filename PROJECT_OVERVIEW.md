@@ -21,6 +21,8 @@ Terraforming-Planet powstał, aby edukować o formowaniu terenu, retencji wody i
 
 ### Backend (`/apps/worker`)
 
+- `GET /health` — status workera.
+- `POST /generate` — przyjmuje `prompt` i `size`, zwraca `data_url` z obrazem base64.
 - Endpoint `POST /api/generate` przyjmuje `prompt`, `size`, `style`.
 - Worker komunikuje się z OpenAI i zwraca `imageBase64`.
 - Klucz API nigdy nie trafia do frontendu.

@@ -1,4 +1,5 @@
 import './style.css';
+import { generateImage } from './lib/api.js';
 
 const terraformingTopics = [
   {
@@ -246,6 +247,15 @@ function updateOutput({ imageUrl, prompt }) {
   }
 }
 
+function buildStyledPrompt(prompt, style) {
+  const styleMap = {
+    realistyczny: 'realistyczny render',
+    concept: 'concept art',
+    blueprint: 'styl blueprint',
+    emoji: 'styl emoji'
+  };
+  const suffix = styleMap[style] ?? style;
+  return `${prompt}\nStyl: ${suffix}. Edukacyjna wizualizacja terraformingu lub pojazdów PV.`;
 async function generateImage(payload) {
   const apiBase = import.meta.env.VITE_API_BASE ?? '';
   const response = await fetch(`${apiBase}/api/generate`, {
@@ -292,6 +302,12 @@ labForm.addEventListener('submit', async (event) => {
   updateOutput({ imageUrl: null, prompt: null });
 
   try {
+    const styledPrompt = buildStyledPrompt(prompt, styleInput.value);
+    const out = await generateImage({
+      prompt: styledPrompt,
+      size: formatInput.value
+    });
+    const imageUrl = out.data_url;
     const imageUrl = await generateImage({
       prompt,
       style: styleInput.value,
