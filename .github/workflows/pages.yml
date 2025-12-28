@@ -1,9 +1,9 @@
-name: Deploy Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -11,12 +11,16 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,13 +33,9 @@ jobs:
           cache-dependency-path: apps/web/package-lock.json
 
       - name: Install dependencies
-        working-directory: apps/web
         run: npm ci
 
       - name: Build
-        working-directory: apps/web
-        env:
-          VITE_API_BASE: https://terraformingplanet.terraforming-planet.workers.dev
         run: npm run build
 
       - name: Upload artifact
@@ -49,6 +49,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
