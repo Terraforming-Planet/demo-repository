@@ -175,3 +175,19 @@ Przykład konfiguracji znajdziesz w `.env.example`.
 ---
 
 Projekt służy edukacji i wspólnemu dobru. Zachęcamy do współtworzenia i dzielenia się wiedzą.
+<h2>Live demo</h2>
+
+<a href="https://terraformingplanet.terraforming-planet.workers.dev/" target="_blank" rel="noopener noreferrer">
+  <img
+    src="https://raw.githubusercontent.com/TWOJ_USER/TWOJE_REPO/main/assets/preview.png"
+    alt="Preview"
+    width="900"
+  />
+</a>
+
+<p>
+  Otwórz demo:
+  <a href="https://terraformingplanet.terraforming-planet.workers.dev/" target="_blank" rel="noopener noreferrer">
+    https://terraformingplanet.terraforming-planet.workers.dev/
+  </a>
+</p>
