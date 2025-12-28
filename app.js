@@ -1,5 +1,3 @@
-const WORKER_URL =
-  "https://terraformingplwnetgenimg.terraforming-planet.workers.dev";
 const WORKER_URL = "https://terraformingplwnetgenimg.terraforming-planet.workers.dev";
 
 const stageSelect = document.getElementById("stage");
@@ -61,59 +59,38 @@ button.addEventListener("click", async () => {
   renderMessage("Generuję obraz...");
 
   try {
-
-  const prompt = `
-Cinematic scientific visualization of a ${planetMap[planet]} planet.
-Terraforming stage: ${stageMap[stage]}.
-${styleMap[style]}
-Atmosphere formation, water cycles, vegetation growth, advanced technology, realistic lighting, space view, no text.
-`;
-
-  try {
-    setLoading(true);
-    renderMessage("Generuję obraz..." );
-
     const response = await fetch(WORKER_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt }),
     });
 
+    const text = await response.text(); // najpierw text, żeby dało się debugować
     if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Worker error: ${response.status} ${errorText}`);
+      throw new Error(`Worker error: ${response.status} ${text}`);
     }
 
-    const data = await response.json();
-
-    if (data?.error) {
-      throw new Error(data.error);
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      throw new Error(`Worker returned non-JSON: ${text.slice(0, 200)}`);
     }
 
-    if (!data?.image) {
-      throw new Error("Brak URL obrazka w odpowiedzi.");
-    }
-
-    renderImage(data.image);
-  } catch (error) {
-    console.error(error);
-    renderMessage(
-      "Nie udało się wygenerować obrazu. Sprawdź Worker, URL i klucz API."
-    );
-      throw new Error(`Worker error: ${response.status}`);
-    }
-
-    const data = await response.json();
-    const imageUrl = data?.data?.[0]?.url;
+    // Obsłuż oba możliwe formaty odpowiedzi:
+    const imageUrl =
+      data?.image ||                // np. { image: "https://..." }
+      data?.url ||                  // np. { url: "https://..." }
+      data?.data?.[0]?.url;         // np. { data: [{ url: "https://..." }] }
 
     if (!imageUrl) {
-      throw new Error("Brak URL obrazka w odpowiedzi.");
+      throw new Error(`Brak URL obrazka w odpowiedzi: ${text.slice(0, 300)}`);
     }
 
     renderImage(imageUrl);
-  } catch (error) {
-    renderMessage("Nie udało się wygenerować obrazu. Sprawdź Worker i klucz API.");
-    console.error(error);
+  } catch (err) {
+    console.error(err);
+    renderMessage("Nie udało się wygenerować obrazu. Sprawdź Worker, URL i klucz API.");
   } finally {
     setLoading(false);
   }
