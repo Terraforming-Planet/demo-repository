@@ -9,6 +9,16 @@ Projekt generuje obrazy terraformowanej planety bez ujawniania klucza API.
 Frontend (GitHub Pages)
    ↓
 Cloudflare Worker (OPENAI_API_KEY)
+# Terraforming Planet Image Gen
+
+Najprostszy, zgodny z regulaminem Community Dev Challenge projekt do generowania obrazów:
+
+```
+Android (przeglądarka)
+   ↓
+GitHub Pages (HTML + JS)
+   ↓
+Cloudflare Worker (API key)
    ↓
 OpenAI Image Gen API
 ```
@@ -16,6 +26,9 @@ OpenAI Image Gen API
 ## Uruchomienie krok po kroku
 
 ### 1) GitHub Pages (frontend)
+> **Ważne:** w repozytorium nie ma żadnego klucza API.
+
+## 1. GitHub Pages (frontend)
 
 1. Umieść pliki w repozytorium:
    - `index.html`
@@ -54,6 +67,15 @@ export default {
         status: 405,
         headers: { "Content-Type": "application/json", ...corsHeaders },
       });
+## 2. Cloudflare Worker (backend z API key)
+
+Utwórz Workera i wklej kod:
+
+```js
+export default {
+  async fetch(request, env) {
+    if (request.method !== "POST") {
+      return new Response("Only POST", { status: 405 });
     }
 
     const body = await request.json();
@@ -76,6 +98,8 @@ export default {
 
     return new Response(JSON.stringify({ image: imageUrl }), {
       headers: { "Content-Type": "application/json", ...corsHeaders },
+    return new Response(await response.text(), {
+      headers: { "Content-Type": "application/json" },
     });
   },
 };
@@ -94,6 +118,10 @@ https://terraformingplwnetgenimg.terraforming-planet.workers.dev
 ```
 
 ### 3) Podłącz frontend do Workera
+https://terraforming-image-api.username.workers.dev
+```
+
+## 3. Połącz frontend z Workerem
 
 W pliku `app.js` ustaw swój URL:
 
@@ -103,6 +131,10 @@ const WORKER_URL =
 ```
 
 ### 4) Uruchomienie na Androidzie
+const WORKER_URL = "https://terraforming-image-api.username.workers.dev";
+```
+
+## 4. Uruchomienie na Androidzie
 
 1. Otwórz stronę GitHub Pages w Chrome/Firefox.
 2. Kliknij **Generate**.
@@ -119,3 +151,9 @@ const WORKER_URL =
 
 Klucz `OPENAI_API_KEY` znajduje się wyłącznie w Cloudflare Worker. Frontend nie zawiera żadnych
 sekretów.
+## Wymagania konkursu
+
+- Repozytorium jest publiczne.
+- README opisuje projekt oraz sposób uruchomienia.
+- Klucze API nie są commitowane do repo.
+- Screeny lub sample output są mile widziane.

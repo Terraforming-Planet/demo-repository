@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Terraforming Planet – Image Gen</title>
+    <title>Terraforming Planet · Image Gen</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -15,6 +16,8 @@
           <p class="lead">
             Proste demo: GitHub Pages jako frontend, Cloudflare Worker jako backend z kluczem API.
             Działa na Androidzie, bezpiecznie i zgodnie z regulaminem.
+            Najprostsza, zgodna z regulaminem architektura: GitHub Pages jako frontend, Cloudflare
+            Worker jako backend z kluczem API. Całość działa na Androidzie i nie ujawnia sekretów.
           </p>
         </div>
         <div class="hero-card">
@@ -33,6 +36,7 @@
         <article class="panel">
           <h2>Ustawienia obrazu</h2>
           <label class="field" for="stage">
+          <label class="field">
             <span>Etap terraformowania</span>
             <select id="stage">
               <option value="early">Wczesny: pierwsze krople wody</option>
@@ -41,6 +45,7 @@
             </select>
           </label>
           <label class="field" for="planet">
+          <label class="field">
             <span>Typ planety</span>
             <select id="planet">
               <option value="rocky">Skalista</option>
@@ -50,6 +55,7 @@
             </select>
           </label>
           <label class="field" for="style">
+          <label class="field">
             <span>Styl wizualny</span>
             <select id="style">
               <option value="cinematic">Cinematic</option>
@@ -60,6 +66,9 @@
           <button id="generate" type="button">Generate</button>
           <p class="note">
             Klucz API jest przechowywany tylko w Workerze. Frontend nie zawiera sekretów.
+          <button id="generate">Generate</button>
+          <p class="note">
+            Klucz API jest przechowywany wyłącznie w Workerze. Repozytorium jest bezpieczne.
           </p>
         </article>
 
@@ -85,6 +94,7 @@
             <h3>2. Cloudflare Worker</h3>
             <ul>
               <li>Dodaj kod Workera z README (plik <code>worker.js</code>).</li>
+              <li>Dodaj kod Workera z README.</li>
               <li>Ustaw sekret <code>OPENAI_API_KEY</code>.</li>
             </ul>
           </div>
@@ -101,6 +111,9 @@
 
     <footer>
       <p>Projekt w ramach Community Dev Challenge. Nie commituj kluczy API.</p>
+      <p>
+        Projekt w ramach Community Dev Challenge. Nie commituj kluczy API do repozytorium.
+      </p>
     </footer>
 
     <script src="app.js"></script>
