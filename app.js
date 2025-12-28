@@ -105,12 +105,24 @@ Atmosphere formation, water cycles, vegetation growth, advanced technology, real
 
     const data = await response.json();
     const imageUrl = data?.data?.[0]?.url;
+    const imageBase64 = data?.data?.[0]?.b64_json;
+    const errorMessage = data?.error?.message;
 
-    if (!imageUrl) {
-      throw new Error("Brak URL obrazka w odpowiedzi.");
+    if (errorMessage) {
+      throw new Error(errorMessage);
     }
 
-    renderImage(imageUrl);
+    if (imageUrl) {
+      renderImage(imageUrl);
+      return;
+    }
+
+    if (imageBase64) {
+      renderImage(`data:image/png;base64,${imageBase64}`);
+      return;
+    }
+
+    throw new Error("Brak URL lub base64 obrazka w odpowiedzi.");
   } catch (error) {
     renderMessage("Nie udało się wygenerować obrazu. Sprawdź Worker i klucz API.");
     console.error(error);
