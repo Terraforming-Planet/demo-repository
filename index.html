@@ -3,296 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Terraforming Planet dla wspólnego dobra</title>
-    <style>
-      :root {
-        color-scheme: dark;
-        --bg: #0b0f1f;
-        --bg-alt: #111833;
-        --card: rgba(255, 255, 255, 0.06);
-        --accent: #7ae7ff;
-        --accent-2: #a6ffb5;
-        --text: #e9eef7;
-        --muted: #b7c0d9;
-        --shadow: 0 20px 50px rgba(3, 10, 32, 0.45);
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-        background: radial-gradient(circle at top, #1c274f 0%, var(--bg) 55%);
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 40px 24px 80px;
-      }
-
-      header {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-        align-items: flex-start;
-        margin-bottom: 48px;
-      }
-
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 8px 16px;
-        border-radius: 999px;
-        background: rgba(122, 231, 255, 0.12);
-        color: var(--accent);
-        font-weight: 600;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-      }
-
-      h1 {
-        font-size: clamp(2.5rem, 3.5vw, 3.7rem);
-        line-height: 1.1;
-      }
-
-      p.lead {
-        font-size: 1.1rem;
-        color: var(--muted);
-        max-width: 720px;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 24px;
-        margin-top: 40px;
-      }
-
-      .panel {
-        background: var(--card);
-        padding: 24px;
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: var(--shadow);
-      }
-
-      .planet {
-        position: relative;
-        overflow: hidden;
-        min-height: 280px;
-      }
-
-      .planet::before {
-        content: "";
-        position: absolute;
-        inset: -20% auto auto -10%;
-        width: 340px;
-        height: 340px;
-        background: radial-gradient(circle at 30% 30%, #7ae7ff, #4adadf 35%, #142851 70%);
-        border-radius: 50%;
-        box-shadow: inset 0 -35px 90px rgba(0, 0, 0, 0.45);
-      }
-
-      .planet::after {
-        content: "";
-        position: absolute;
-        bottom: -20px;
-        right: -30px;
-        width: 230px;
-        height: 230px;
-        border-radius: 50%;
-        background: radial-gradient(circle at 35% 30%, #a6ffb5, #3e7b5f 60%, #0a1b18 90%);
-        opacity: 0.7;
-      }
-
-      .planet-content {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      .highlight {
-        color: var(--accent-2);
-        font-weight: 600;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-      }
-
-      h2 {
-        font-size: 1.6rem;
-        margin-bottom: 12px;
-      }
-
-      h3 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-      }
-
-      ul {
-        list-style: none;
-        display: grid;
-        gap: 10px;
-      }
-
-      ul li {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-        color: var(--muted);
-      }
-
-      ul li span {
-        color: var(--accent);
-        font-weight: 600;
-      }
-
-      .callout {
-        border-left: 4px solid var(--accent);
-        padding-left: 16px;
-        color: var(--muted);
-      }
-
-      .cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        margin-top: 20px;
-        padding: 12px 22px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, rgba(122, 231, 255, 0.2), rgba(166, 255, 181, 0.2));
-        color: var(--text);
-        text-decoration: none;
-        font-weight: 600;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .cta:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(10, 23, 56, 0.4);
-      }
-
-      footer {
-        margin-top: 60px;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 720px) {
-        header {
-          align-items: stretch;
-        }
-      }
-    </style>
+    <title>Terraforming Planet – Image Gen</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <span class="badge">Konkurs · Terraforming Planet</span>
-        <h1>Terraforming Planet dla wspólnego dobra</h1>
-        <p class="lead">
-          Wyobraźmy sobie świat, w którym zmieniamy planety tak, aby chronić życie, rozwijać
-          naukę i budować lepszą przyszłość. Projekt <span class="highlight">Terraforming
-          Planet</span> to opowieść o odpowiedzialnym wykorzystaniu technologii, aby wszyscy
-          mogli korzystać z nowych ekosystemów.
-        </p>
+    <main class="container">
+      <header class="hero">
+        <div>
+          <p class="badge">Community Dev Challenge · Image Gen API</p>
+          <h1>Terraforming Planet — generator wizualizacji</h1>
+          <p class="lead">
+            Proste demo: GitHub Pages jako frontend, Cloudflare Worker jako backend z kluczem API.
+            Działa na Androidzie, bezpiecznie i zgodnie z regulaminem.
+          </p>
+        </div>
+        <div class="hero-card">
+          <h2>Architektura</h2>
+          <ol>
+            <li>Android (przeglądarka)</li>
+            <li>GitHub Pages (HTML + JS)</li>
+            <li>Cloudflare Worker (API key)</li>
+            <li>OpenAI Image Gen API</li>
+          </ol>
+          <p class="hint">Podmień URL Workera w <code>app.js</code>.</p>
+        </div>
       </header>
 
-      <section class="hero">
-        <article class="panel planet">
-          <div class="planet-content">
-            <h2>Misja dla planety i ludzi</h2>
-            <p class="callout">
-              Terraformowanie to więcej niż inżynieria — to współpraca między nauką, społecznością
-              i etyką. Projekt stawia na otwartą wiedzę, transparentne decyzje i globalną
-              solidarność.
-            </p>
-            <a class="cta" href="https://github.com/Terraforming-Planet" target="_blank" rel="noreferrer">
-              Poznaj repozytorium
-              <span>→</span>
-            </a>
-          </div>
+      <section class="grid">
+        <article class="panel">
+          <h2>Ustawienia obrazu</h2>
+          <label class="field" for="stage">
+            <span>Etap terraformowania</span>
+            <select id="stage">
+              <option value="early">Wczesny: pierwsze krople wody</option>
+              <option value="mid">Środkowy: stabilna atmosfera</option>
+              <option value="late">Późny: lasy i oceany</option>
+            </select>
+          </label>
+          <label class="field" for="planet">
+            <span>Typ planety</span>
+            <select id="planet">
+              <option value="rocky">Skalista</option>
+              <option value="mars-like">Marsopodobna</option>
+              <option value="ocean">Oceaniczna</option>
+              <option value="ice">Lodowa</option>
+            </select>
+          </label>
+          <label class="field" for="style">
+            <span>Styl wizualny</span>
+            <select id="style">
+              <option value="cinematic">Cinematic</option>
+              <option value="science">Science</option>
+              <option value="nasa">NASA</option>
+            </select>
+          </label>
+          <button id="generate" type="button">Generate</button>
+          <p class="note">
+            Klucz API jest przechowywany tylko w Workerze. Frontend nie zawiera sekretów.
+          </p>
         </article>
 
-        <article class="panel">
-          <h2>Dlaczego „dla wspólnego dobra”?</h2>
-          <p>
-            Wspólne dobro oznacza, że każda decyzja jest oceniana przez pryzmat wpływu na ludzi,
-            klimat i przyszłe pokolenia. Terraforming Planet proponuje model, w którym wszyscy
-            uczestnicy mają dostęp do danych, a działania są prowadzone w sposób odpowiedzialny.
-          </p>
+        <article class="panel output">
+          <h2>Wynik</h2>
+          <div id="output" class="output-box">
+            <p class="muted">Gotowy do generowania. Kliknij Generate.</p>
+          </div>
         </article>
       </section>
 
-      <section class="panel" style="margin-top: 32px;">
-        <h2>Kluczowe filary projektu</h2>
-        <div class="grid">
+      <section class="panel steps">
+        <h2>Instrukcja uruchomienia</h2>
+        <div class="steps-grid">
           <div>
-            <h3>🌍 Zrównoważony ekosystem</h3>
+            <h3>1. GitHub Pages</h3>
             <ul>
-              <li><span>01</span> Przywracanie warunków sprzyjających życiu.</li>
-              <li><span>02</span> Ochrona bioróżnorodności i wód.</li>
-              <li><span>03</span> Adaptacja do zmian klimatycznych.</li>
+              <li>Wrzuć pliki: <code>index.html</code>, <code>style.css</code>, <code>app.js</code>.</li>
+              <li>Settings → Pages → Source: main, folder: /root.</li>
             </ul>
           </div>
           <div>
-            <h3>🤝 Otwartość i współpraca</h3>
+            <h3>2. Cloudflare Worker</h3>
             <ul>
-              <li><span>01</span> Globalna sieć badaczy i wolontariuszy.</li>
-              <li><span>02</span> Wspólne standardy etyczne.</li>
-              <li><span>03</span> Transparentne raportowanie postępów.</li>
+              <li>Dodaj kod Workera z README (plik <code>worker.js</code>).</li>
+              <li>Ustaw sekret <code>OPENAI_API_KEY</code>.</li>
             </ul>
           </div>
           <div>
-            <h3>🚀 Technologia na służbie dobra</h3>
+            <h3>3. Android</h3>
             <ul>
-              <li><span>01</span> Modelowanie atmosfery i hydrosfery.</li>
-              <li><span>02</span> Inteligentne zarządzanie energią.</li>
-              <li><span>03</span> Edukacja społeczna i inspiracja.</li>
+              <li>Otwórz adres GitHub Pages w Chrome/Firefox.</li>
+              <li>Kliknij Generate i zobacz wynik.</li>
             </ul>
           </div>
         </div>
       </section>
+    </main>
 
-      <section class="grid" style="margin-top: 32px;">
-        <article class="panel">
-          <h2>Plan działania</h2>
-          <ul>
-            <li><span>Etap 1</span> Badania i prototypowanie technologii.</li>
-            <li><span>Etap 2</span> Wspólne warsztaty i konsultacje społeczne.</li>
-            <li><span>Etap 3</span> Symulacje i wdrożenia pilotażowe.</li>
-          </ul>
-        </article>
-        <article class="panel">
-          <h2>Jak możesz pomóc?</h2>
-          <ul>
-            <li><span>●</span> Wesprzyj rozwój otwartych danych.</li>
-            <li><span>●</span> Dołącz do dyskusji o etyce technologii.</li>
-            <li><span>●</span> Promuj odpowiedzialne innowacje.</li>
-          </ul>
-        </article>
-      </section>
+    <footer>
+      <p>Projekt w ramach Community Dev Challenge. Nie commituj kluczy API.</p>
+    </footer>
 
-      <footer>
-        <p>
-          Stworzono na konkurs: inspiracja projektem Terraforming Planet. Razem budujemy przyszłość,
-          w której technologia służy wszystkim.
-        </p>
-      </footer>
-    </div>
+    <script src="app.js"></script>
   </body>
 </html>
