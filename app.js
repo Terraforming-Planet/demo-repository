@@ -1,4 +1,5 @@
 const WORKER_URL = "https://terraformingplwnetgenimg.terraforming-planet.workers.dev";
+
 const stageSelect = document.getElementById("stage");
 const planetSelect = document.getElementById("planet");
 const styleSelect = document.getElementById("style");
