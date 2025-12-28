@@ -1,232 +1,102 @@
-:root {
-  color-scheme: dark;
-  --bg: #070b18;
-  --surface: rgba(255, 255, 255, 0.06);
-  --surface-strong: rgba(255, 255, 255, 0.12);
-  --accent: #7ae7ff;
-  --accent-2: #a6ffb5;
-  --text: #eef2ff;
-  --muted: #aab3cc;
-  --shadow: 0 20px 50px rgba(3, 10, 32, 0.45);
+// 1) TU wklej swój Worker URL:
+const WORKER_URL = "https://terraformingplwnetgenimg.terraforming-planet.workers.dev";
+
+const stageSelect = document.getElementById("stage");
+const planetSelect = document.getElementById("planet");
+const styleSelect = document.getElementById("style");
+const output = document.getElementById("output");
+const button = document.getElementById("generate");
+
+const styleMap = {
+  cinematic: "Cinematic lighting, epic scale, high contrast.",
+  science: "Scientific visualization, realistic data-driven rendering.",
+  nasa: "NASA documentary style, photo-realistic, subtle color grading.",
+};
+
+const stageMap = {
+  early: "Early stage: first atmosphere formation and water vapor.",
+  mid: "Mid stage: stable atmosphere, shallow seas, emerging vegetation.",
+  late: "Late stage: dense forests, oceans, thriving ecosystems.",
+};
+
+const planetMap = {
+  rocky: "rocky",
+  "mars-like": "mars-like",
+  ocean: "oceanic",
+  ice: "ice",
+};
+
+function setLoading(isLoading) {
+  button.disabled = isLoading;
+  button.textContent = isLoading ? "Generating..." : "Generate";
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+function renderMessage(message) {
+  output.innerHTML = `<p class="muted">${message}</p>`;
 }
 
-body {
-  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: radial-gradient(circle at top, #182243 0%, var(--bg) 55%);
-  color: var(--text);
-  line-height: 1.6;
+function renderImage(url) {
+  const img = document.createElement("img");
+  img.src = url;
+  img.alt = "Wizualizacja terraformowanego świata";
+  output.innerHTML = "";
+  output.appendChild(img);
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 48px 24px 80px;
+function buildPrompt(stage, planet, style) {
+  return `
+Cinematic scientific visualization of a ${planetMap[planet]} planet.
+Terraforming stage: ${stageMap[stage]}.
+${styleMap[style]}
+Atmosphere formation, water cycles, vegetation growth, advanced technology, realistic lighting, space view, no text.
+`.trim();
 }
 
-.hero {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  align-items: center;
-  margin-bottom: 48px;
-}
+button.addEventListener("click", async () => {
+  const stage = stageSelect.value;
+  const planet = planetSelect.value;
+  const style = styleSelect.value;
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(122, 231, 255, 0.15);
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.72rem;
-  font-weight: 600;
-}
+  const prompt = buildPrompt(stage, planet, style);
 
-h1 {
-  font-size: clamp(2.4rem, 4vw, 3.6rem);
-  line-height: 1.1;
-  margin: 12px 0 16px;
-}
+  setLoading(true);
+  renderMessage("Generuję obraz...");
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-}
+  try {
+    const response = await fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt }),
+    });
 
-h3 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
+    const raw = await response.text();
 
-.lead {
-  color: var(--muted);
-  max-width: 640px;
-}
+    if (!response.ok) {
+      throw new Error(`Worker error ${response.status}: ${raw}`);
+    }
 
-.hero-card {
-  background: var(--surface);
-  border-radius: 20px;
-  padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: var(--shadow);
-}
+    let data;
+    try {
+      data = JSON.parse(raw);
+    } catch {
+      throw new Error(`Worker returned non-JSON: ${raw.slice(0, 200)}`);
+    }
 
-.hero-card ol {
-  margin-top: 12px;
-  padding-left: 20px;
-  color: var(--muted);
-}
+    // Obsłuż 3 formaty odpowiedzi:
+    const imageUrl =
+      data?.image ||         // { image: "https://..." }
+      data?.url ||           // { url: "https://..." }
+      data?.data?.[0]?.url;  // { data: [{ url: "https://..." }] }
 
-.hint {
-  margin-top: 14px;
-  font-size: 0.9rem;
-  color: var(--accent-2);
-}
+    if (!imageUrl) {
+      throw new Error(`Brak URL obrazka w odpowiedzi: ${raw.slice(0, 300)}`);
+    }
 
-.grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.panel {
-  background: var(--surface);
-  border-radius: 20px;
-  padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: var(--shadow);
-}
-
-.field {
-  display: grid;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.field span {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-select {
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: var(--surface-strong);
-  color: var(--text);
-}
-
-button {
-  width: 100%;
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: linear-gradient(90deg, rgba(122, 231, 255, 0.35), rgba(166, 255, 181, 0.35));
-  color: var(--text);
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(10, 23, 56, 0.4);
-}
-
-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
-  transform: none;
-  box-shadow: none;
-}
-
-.note {
-  margin-top: 16px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.output {
-  min-height: 380px;
-}
-
-.output-box {
-  min-height: 280px;
-  display: grid;
-  place-items: center;
-  border-radius: 16px;
-  border: 1px dashed rgba(255, 255, 255, 0.2);
-  padding: 16px;
-}
-
-.output-box img {
-  width: 100%;
-  height: auto;
-  max-width: 420px;
-  border-radius: 16px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-  object-fit: cover;
-  max-width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
-}
-
-.muted {
-  color: var(--muted);
-  text-align: center;
-}
-
-.steps {
-  margin-top: 32px;
-}
-
-.steps-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.steps ul {
-  list-style: none;
-  display: grid;
-  gap: 8px;
-  color: var(--muted);
-}
-
-footer {
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.9rem;
-  padding: 24px;
-}
-
-code {
-  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, monospace;
-  background: rgba(0, 0, 0, 0.35);
-  padding: 2px 6px;
-  border-radius: 6px;
-}
-
-@media (max-width: 720px) {
-  .container {
-    padding: 32px 18px 60px;
+    renderImage(imageUrl);
+  } catch (err) {
+    console.error(err);
+    renderMessage("Nie udało się wygenerować obrazu. Sprawdź Worker/URL/OPENAI_API_KEY.");
+  } finally {
+    setLoading(false);
   }
-
-  .hero {
-    gap: 24px;
-  }
-
-  .output-box img {
-    max-width: 100%;
-  }
-}
+})
