@@ -2,6 +2,12 @@
 
 Terraforming-Planet to edukacyjny projekt o kształtowaniu terenu, retencji wody i pojazdach fotowoltaicznych. Łączymy naukę z wizualizacjami, aby wspierać rekultywację, ochronę środowiska i transformację energetyczną.
 
+## Struktura repozytorium
+
+- **/apps/web** — statyczna strona WWW (Vite + Vanilla JS).
+- **/apps/worker** — worker API do generowania obrazów (Cloudflare Workers + OpenAI).
+- **/apps/web/src/styles** — główne style UI.
+- **/apps/web/src/assets** — lekkie zasoby (SVG, tła, ikony).
 ## Co znajdziesz w repozytorium
 
 - **/apps/web** — statyczna strona WWW (Vite + Vanilla JS).
@@ -53,6 +59,22 @@ Terraforming-Planet to edukacyjny projekt o kształtowaniu terenu, retencji wody
    ```
 
 > Uwaga: modele GPT Image zwracają base64. Aplikacja używa `data_url` z workera (bez tymczasowego URL).
+
+## Wdrożenie (GitHub Pages)
+
+Repozytorium ma workflow `.github/workflows/pages.yml`, który:
+
+- buduje aplikację w `apps/web`,
+- publikuje `apps/web/dist` na GitHub Pages,
+- ustawia `VITE_API_BASE` na adres workera.
+
+Aby działało poprawnie:
+
+1. Upewnij się, że nazwa repozytorium odpowiada ścieżce `base` w `apps/web/vite.config.js`.
+2. Włącz GitHub Pages w ustawieniach repozytorium (Source: GitHub Actions).
+3. Zrób push na `main` — workflow sam zbuduje i opublikuje stronę.
+
+## Konfiguracja środowiska
 > Uwaga: modele GPT Image zwracają base64. Aplikacja używa pola `data_url` z workera (bez tymczasowego URL).
 
 ## Jak korzystać z generatora

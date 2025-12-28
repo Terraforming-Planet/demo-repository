@@ -1,3 +1,9 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - main
 name: Deploy to GitHub Pages
 
 on:
@@ -11,6 +17,8 @@ permissions:
   id-token: write
 
 concurrency:
+  group: pages
+  cancel-in-progress: false
   group: "pages"
   cancel-in-progress: true
 
@@ -32,6 +40,17 @@ jobs:
           cache: npm
           cache-dependency-path: apps/web/package-lock.json
 
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        working-directory: apps/web
+        run: npm install --no-audit --no-fund
+
+      - name: Build
+        working-directory: apps/web
+        env:
+          VITE_API_BASE: https://terraformingplanet.terraforming-planet.workers.dev
       - name: Install dependencies
         run: npm ci
 

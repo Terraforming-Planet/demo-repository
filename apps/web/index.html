@@ -3,6 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terraforming-Planet — edukacja, wizualizacje, pojazdy PV</title>
+    <meta
+      name="description"
+      content="Terraforming-Planet to futurystyczne laboratorium edukacji o formowaniu terenu, hydrologii i pojazdach fotowoltaicznych."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="bg-orbit"></div>
+    <header class="hero" id="top">
+      <nav class="nav">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          Terraforming-Planet
+        </div>
+        <div class="nav-links">
+          <a href="#generator">Generator</a>
+          <a href="#gallery">Galeria</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="status-pill" id="health-status">Sprawdzam API…</div>
+      </nav>
+      <section class="hero-content">
+        <div class="hero-text">
+          <p class="eyebrow">Misja edukacyjna</p>
+          <h1>Futurystyczne laboratorium terraformingu i pojazdów PV.</h1>
+          <p>
+            Pokazujemy, jak świadomie formować teren, zatrzymywać wodę i planować infrastrukturę.
+            Łączymy naukę z wizualizacjami — od rekultywacji po autonomiczne maszyny fotowoltaiczne.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#generator">Wejdź do Generatora</a>
+            <a class="button ghost" href="#gallery">Zobacz Galerię</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <span>+10</span>
+              <p>promptów startowych</p>
+            </div>
+            <div>
+              <span>4</span>
+              <p>kroki edukacji</p>
+            </div>
+            <div>
+              <span>∞</span>
+              <p>scenariuszy terenu</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <h3>System statusu</h3>
+          <div class="status-grid">
+            <div>
+              <span class="led"></span>
+              <div>
+                <p>Stan aplikacji</p>
+                <strong id="app-status">Inicjalizacja…</strong>
+              </div>
+            </div>
+            <div>
+              <span class="led"></span>
+              <div>
+                <p>API Workera</p>
+                <strong id="api-status">Nie sprawdzono</strong>
+              </div>
+            </div>
+          </div>
+          <div class="mission-cards" id="mission-cards"></div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="generator" class="section glass">
+        <div class="section-header">
+          <h2>Generator wizualizacji</h2>
+          <p>
+            Wprowadź prompt, wybierz styl i format. Generator tworzy obrazy edukacyjne, które możesz
+            analizować i zapisywać jako wnioski.
     <title>Terraforming-Planet — edukacja o formowaniu terenu i pojazdach PV</title>
     <meta
       name="description"
@@ -173,6 +259,7 @@
           <form class="lab-form" id="lab-form">
             <label>
               Prompt
+              <textarea id="prompt" placeholder="Opisz scenę terraformingu lub pojazdu PV…" rows="4"></textarea>
               <textarea id="prompt" placeholder="Opisz scenę..." rows="4"></textarea>
             </label>
             <div class="field-row">
@@ -198,6 +285,7 @@
               </label>
             </div>
             <button class="button primary" type="submit">Generuj</button>
+            <p class="hint" id="lab-status">Podaj prompt, aby rozpocząć generowanie.</p>
             <p class="hint" id="lab-status">Użyj jednego z gotowych promptów lub wpisz własny.</p>
             <div class="prompt-list" id="prompt-list"></div>
           </form>
@@ -212,6 +300,7 @@
             </div>
             <label>
               Czego się nauczyliśmy
+              <textarea id="notes" rows="3" placeholder="Zapisz wnioski i obserwacje..."></textarea>
               <textarea id="notes" rows="3" placeholder="Zapisz wnioski..."></textarea>
             </label>
             <div class="history">
@@ -224,6 +313,8 @@
 
       <section id="gallery" class="section">
         <div class="section-header">
+          <h2>Galeria inspiracji</h2>
+          <p>Przeglądaj przykładowe wizualizacje i ich prompty.</p>
           <h2>Galeria</h2>
           <p>Filtruj inspiracje i sprawdzaj prompty użyte do wizualizacji.</p>
         </div>
@@ -231,6 +322,20 @@
         <div class="gallery-grid" id="gallery-grid"></div>
       </section>
 
+      <section id="roadmap" class="section glass">
+        <div class="section-header">
+          <h2>Roadmap edukacyjny</h2>
+          <p>Plan rozwoju platformy i obszarów wiedzy.</p>
+        </div>
+        <div class="roadmap-grid" id="roadmap-grid"></div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="section-header">
+          <h2>FAQ</h2>
+          <p>Najczęstsze pytania o projekt i generator.</p>
+        </div>
+        <div class="faq-grid" id="faq-grid"></div>
       <section id="about" class="section about">
         <div class="section-header">
           <h2>O projekcie / Kontakt</h2>
@@ -268,6 +373,14 @@
     </main>
 
     <footer class="footer">
+      <div>
+        <strong>Terraforming-Planet</strong>
+        <p>Otwarte zasoby edukacyjne o terraformingu, hydrologii i pojazdach PV.</p>
+      </div>
+      <div>
+        <p>Kontakt: <a href="mailto:kontakt@terraforming-planet.org">kontakt@terraforming-planet.org</a></p>
+        <p>GitHub: <a href="https://github.com/Terraforming-Planet" target="_blank" rel="noreferrer">Terraforming-Planet</a></p>
+      </div>
       <p>© 2024 Terraforming-Planet — edukacja i technologia dla wspólnego dobra.</p>
       <a href="#top">Powrót na górę</a>
     </footer>
