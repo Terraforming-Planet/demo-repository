@@ -1,4 +1,5 @@
 # Terraforming-Planet
+[![Live Preview](https://terraformingplanet.terraforming-planet.workers.dev/preview.png)](https://terraformingplanet.terraforming-planet.workers.dev)
 
 ![19007](https://github.com/user-attachments/assets/0941a827-209e-491b-bba7-acf4408163c9)
 
