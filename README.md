@@ -433,7 +433,6 @@ Every voice helps improve the project 🌍
 ### ⚠️ API Status Notice
 At the moment, I do not have access to the required verification documents on the OpenAI Platform API.  
 I am actively working on organizing and submitting them, with the goal of completing verification **by January 5**.
-
 Once verified, the system will be able to generate images using the **Base64 Image Model 1.5**.  
 In the meantime, **DALL·E 3** is available and functioning as an alternative image generation model.
 ---
