@@ -400,8 +400,8 @@ coherent framing and perspective.
 This project is open to discussion, ideas, and constructive feedback.
 
 👉 **Leave a comment or start a discussion here:**  
-🔗 https://github.com/Terraforming-Planet/Terraforming-Planet/issues
-
+🔗
+👉 **[Add a comment or share generated images](https://github.com/Terraforming-Planet/Graphic-gen-Terrain-Formation-planet-Photovoltaic-Vehicles/issues/15)**
 You can:
 - ask questions
 - share ideas
