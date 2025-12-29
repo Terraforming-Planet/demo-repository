@@ -436,3 +436,26 @@ I am actively working on organizing and submitting them, with the goal of comple
 
 Once verified, the system will be able to generate images using the **Base64 Image Model 1.5**.  
 In the meantime, **DALL·E 3** is available and functioning as an alternative image generation model.
+---
+
+### 👤 Research & Author Information
+**ORCID iD:**  
+👉 [View the organization on Orcido](https://orcid.org/0009-0007-0123-0894)
+**Affiliation:**  
+Research Institute in Astrophysics and Planetology  
+Toulouse, France  
+
+**Role:**  
+Test Researcher — Mechanics & Electrical Engineering  
+
+
+---
+
+### 🌍 Final Note — Terraforming Planet
+This project marks the culmination of our recent work on **Terraforming Planet** — a space where science, visualization, and engineering meet to explore how technology can shape environments for the common good.
+
+Through experimental image generation, terrain formation concepts, and photovoltaic-driven planetary machines, this initiative serves both as a **learning platform** and a **visionary laboratory**. It is not only about generating images, but about understanding systems, forces, energy flows, and future possibilities.
+
+Terraforming Planet is an open-ended journey — driven by curiosity, responsibility, and collaboration — where every model, prompt, and experiment is a step toward deeper knowledge and a more sustainable future.
+
+Thank you to everyone exploring, testing, and building this vision together.
