@@ -393,6 +393,23 @@ measurable effects,
 process stages,
 
 coherent framing and perspective.
+---
+
+## 💬 Community Feedback & Comments
+
+This project is open to discussion, ideas, and constructive feedback.
+
+👉 **Leave a comment or start a discussion here:**  
+🔗 https://github.com/Terraforming-Planet/Terraforming-Planet/issues
+
+You can:
+- ask questions
+- share ideas
+- report issues
+- propose improvements
+- discuss scientific or engineering concepts
+
+Every voice helps improve the project 🌍
 
 
 <details>
