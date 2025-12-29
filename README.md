@@ -11,7 +11,7 @@
 ### An image generation platform for visual learning and experimentation in terrain formation, self-sustaining photovoltaic vehicles, and planetary engineering
 
 
-# “Visualize first. Engineer wisely.Every planet is a system. Every system can be understood.”
+# “Visualize first engineer wisely ,every planet is a system. Every system can be understood.”
 <img width="1536" height="1024" alt="19882" src="https://github.com/user-attachments/assets/372c80f7-5259-4ccf-a6c4-24b877348c98" />
 
 **Solution technology for the Planet**
@@ -35,8 +35,14 @@ Below is a screenshot from image generator tests:
 
 
 ---
+“AI is not the answer. It’s the tool we use to ask better questions.”
 ![19015](https://github.com/user-attachments/assets/3fedf0de-4cd0-4a0e-8027-e0040766d161)
+
+“Technology serves best when it teaches before it transforms.” 
+
 ![19016](https://github.com/user-attachments/assets/15987542-6909-4c09-817d-4072d132d423)
+
+“Learning planetary engineering through visualization.”
 
 # 🌍 Terraforming Planet — Image Generation Lab
 
@@ -392,11 +398,11 @@ coherent framing and perspective.
 <details>
 <summary><b>Example graphic drawn in GIMP used to train an educational OpenAI AI model (copy)</b></summary>xxx.
 
+![19007](https://github.com/user-attachments/assets/28d6deba-f528-4308-8ec9-332c3dbd22b8)
 
 
 </details>
-```
----
 
-![19007](https://github.com/user-attachments/assets/3c5fcd24-ce11-4420-933b-4900971c8d04)
+
+
 
