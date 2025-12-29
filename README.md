@@ -1,14 +1,5 @@
 # Terraforming-Planet
-[![Live Preview](https://terraformingplanet.terraforming-planet.workers.dev/preview.png)](https://terraformingplanet.terraforming-planet.workers.dev)
-
-![19007](https://github.com/user-attachments/assets/0941a827-209e-491b-bba7-acf4408163c9)
-
-<img width="124" height="124" alt="19791" src="https://github.com/user-attachments/assets/24d1f223-852c-4f6a-868f-bf507ce9528c" />
-<img width="124" height="124" alt="19753" src="https://github.com/user-attachments/assets/77e31b7e-9d0a-4408-a189-7dd23e004d1c" />
-<img width="124" height="124" alt="19750" src="https://github.com/user-attachments/assets/40d5627d-26da-4f84-ae41-eec668a51391" />
-<img width="124" height="124" alt="19754" src="https://github.com/user-attachments/assets/487792c5-9478-440f-98c7-18478189cb1c" />
-
-<a href="https://terraformingplanet.terraforming-planet.workers.dev/"
+[![<a href="https://terraformingplanet.terraforming-planet.workers.dev/"
    target="_blank"
    rel="noopener noreferrer">
 
@@ -35,7 +26,16 @@ Solution technology
       style="max-width:100%; border-radius:20px;"
     />
   </a>
-</p>
+</p>](https://terraformingplanet.terraforming-planet.workers.dev/preview.png)](https://terraformingplanet.terraforming-planet.workers.dev)
+
+![19007](https://github.com/user-attachments/assets/0941a827-209e-491b-bba7-acf4408163c9)
+
+<img width="124" height="124" alt="19791" src="https://github.com/user-attachments/assets/24d1f223-852c-4f6a-868f-bf507ce9528c" />
+<img width="124" height="124" alt="19753" src="https://github.com/user-attachments/assets/77e31b7e-9d0a-4408-a189-7dd23e004d1c" />
+<img width="124" height="124" alt="19750" src="https://github.com/user-attachments/assets/40d5627d-26da-4f84-ae41-eec668a51391" />
+<img width="124" height="124" alt="19754" src="https://github.com/user-attachments/assets/487792c5-9478-440f-98c7-18478189cb1c" />
+
+
 Terraforming-Planet to edukacyjny projekt o kształtowaniu terenu, retencji wody i pojazdach fotowoltaicznych. Łączymy naukę z wizualizacjami, aby wspierać rekultywację, ochronę środowiska i transformację energetyczną.
 
 
