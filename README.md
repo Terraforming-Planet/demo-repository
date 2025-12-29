@@ -1,34 +1,9 @@
 # Terraforming-Planet
-[![<a href="https://terraformingplanet.terraforming-planet.workers.dev/"
-   target="_blank"
-   rel="noopener noreferrer">
+<img width="1536" height="1024" alt="19882" src="https://github.com/user-attachments/assets/372c80f7-5259-4ccf-a6c4-24b877348c98" />
 
-  <img
-    src="assets/preview-1200.png"
-    width="1200"
-    height="1200"
-    alt="Terraforming Planet – Live Preview"
-    style="
-      max-width:100%;
-      border-radius:16px;
-      box-shadow:0 20px 60px rgba(0,0,0,0.45);
-    "
-  />
+**Solution technology for Planet**
 
-</a>
-Solution technology
-<p align="center">
-  <a href="https://terraformingplanet.terraforming-planet.workers.dev/" target="_blank">
-    <img
-      src="assets/preview-1200.png"
-      width="1200"
-      height="1200"
-      style="max-width:100%; border-radius:20px;"
-    />
-  </a>
-</p>](https://terraformingplanet.terraforming-planet.workers.dev/preview.png)](https://terraformingplanet.terraforming-planet.workers.dev)
 
-![19007](https://github.com/user-attachments/assets/0941a827-209e-491b-bba7-acf4408163c9)
 
 <img width="124" height="124" alt="19791" src="https://github.com/user-attachments/assets/24d1f223-852c-4f6a-868f-bf507ce9528c" />
 <img width="124" height="124" alt="19753" src="https://github.com/user-attachments/assets/77e31b7e-9d0a-4408-a189-7dd23e004d1c" />
@@ -205,19 +180,22 @@ Przykład konfiguracji znajdziesz w `.env.example`.
 ---
 
 Projekt służy edukacji i wspólnemu dobru. Zachęcamy do współtworzenia i dzielenia się wiedzą.
-<h2>Live demo</h2>
+<h2>Model do generowania obrazów</h2>
 
-<a href="https://terraformingplanet.terraforming-planet.workers.dev/" target="_blank" rel="noopener noreferrer">
-  <img
-    src="https://raw.githubusercontent.com/TWOJ_USER/TWOJE_REPO/main/assets/preview.png"
-    alt="Preview"
-    width="900"
-  />
-</a>
+   Terraforming Planet • Cloudflare Worker
+Image Generator (OpenAI)
+exampel screan 
+<img width="800" height="1460" alt="20080" src="https://github.com/user-attachments/assets/6b974130-beb9-42e3-8582-d1e2d34d81f9" />
 
+
+
+   
+ **wypróbuj testowe generowanie Grafik w tym linku na cisnij tutaj :**
+👇
 <p>
-  Otwórz demo:
-  <a href="https://terraformingplanet.terraforming-planet.workers.dev/" target="_blank" rel="noopener noreferrer">
-    https://terraformingplanet.terraforming-planet.workers.dev/
+  <a href="https://terraformingplanet.terraforming-planet.workers.dev/"
+     target="_blank"
+     rel="noopener noreferrer">
+    👉 Kliknij tutaj i przetestuj model do generowania grafik
   </a>
 </p>
