@@ -7,7 +7,7 @@
 
 <div align="center">
 
-# 🌍 Terraforming-Planet image-gen
+# 🌍 Terraforming-Planet present image generator 
 ### An image generation platform for visual learning and experimentation in terrain formation, self-sustaining photovoltaic vehicles, and planetary space
 
 
