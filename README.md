@@ -285,9 +285,9 @@ If anything changes — we edit THIS, not add new ones.
 The project serves education and the common good.
 We encourage collaboration and knowledge sharing.
 
-<h2>Image generation model</h2>Terraforming Planet • Cloudflare Worker
+<h2>Image generation model</h2>Terraforming Planet •
 Image Generator (OpenAI)
-example screen
+
 
 <img width="1536" height="1024" alt="19658" src="https://github.com/user-attachments/assets/0fd1baa3-cbf8-4b52-ba76-5d617a1b7b6c"/>
 
