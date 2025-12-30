@@ -8,7 +8,7 @@
 <div align="center">
 
 # 🌍 Terraforming-Planet image-gen
-### An image generation platform for visual learning and experimentation in terrain formation, self-sustaining photovoltaic vehicles, and planetary engineering
+### An image generation platform for visual learning and experimentation in terrain formation, self-sustaining photovoltaic vehicles, and planetary 
 
 
 # “Visualize first engineer wisely ,every planet is a system. Every system can be understood.”
