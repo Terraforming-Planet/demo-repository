@@ -666,3 +666,121 @@ Through experimental image generation, terrain formation concepts, and photovolt
 Terraforming Planet is an open-ended journey — driven by curiosity, responsibility, and collaboration — where every model, prompt, and experiment is a step toward deeper knowledge and a more sustainable future.
 
 Thank you to everyone exploring, testing, and building this vision together.
+---
+
+# 🌍 XPRIZE Direction — Carbon Removal / Energy / Climate
+
+This project is being developed with a **long-term goal of contributing to an XPRIZE-level challenge**, particularly in the areas of **Carbon Removal, Clean Energy, and Climate-scale systems**.
+
+The core idea is to combine **patent-backed physical technology** with **AI-driven planning, simulation, and energy management**, enabling solutions that can scale from individual vehicles to infrastructure and planetary-level deployment.
+
+---
+
+## 🔬 System-Level Vision
+
+This initiative is not limited to software.
+
+It integrates:
+
+- **Granted patent + patent-pending technologies** related to photovoltaic energy systems,
+- **Early physical prototypes** validating core concepts,
+- **AI-based decision and planning logic**,
+- **Simulation and generative visualization tools** used as proof-of-concept before large-scale R&D.
+
+The goal is to build a **system**, not a single device.
+
+---
+
+## ☀️ Energy & Carbon Context
+
+The long-term research direction focuses on:
+
+- maximizing renewable energy harvesting from **multi-surface photovoltaic systems**,
+- enabling **energy-positive mobility and infrastructure**,
+- supporting **carbon reduction and carbon removal strategies** through:
+  - optimized energy availability,
+  - AI-assisted placement and deployment,
+  - terrain and environment-aware planning.
+
+The AI layer is designed to reason about:
+
+- sunlight availability,
+- reflections from surrounding environments,
+- weather and cloud systems,
+- terrain topology,
+- energy flow and usage in real time.
+
+This kind of system-level reasoning is critical for **scalable climate and carbon-related solutions**.
+
+---
+
+## 🧠 Why This Aligns With XPRIZE
+
+XPRIZE challenges reward technologies that are:
+
+- scalable,
+- measurable,
+- grounded in real physics,
+- and capable of real-world deployment.
+
+This project aligns with that philosophy by:
+
+- combining **physical, patented technology** with **AI-driven optimization**,
+- using simulation and visualization as **engineering tools**, not art,
+- focusing on **energy and climate impact**, not short-term demos.
+
+The software component serves as a **decision-support and planning layer** for deploying real technologies at scale.
+
+---
+
+## 🧪 Current Stage
+
+- Proof-of-concept
+- Early R&D preparation
+- Visual and AI simulations validating logic and physical assumptions
+- Iterative refinement before larger hardware and field tests
+
+This stage is intentional — it reduces risk and accelerates responsible scaling.
+
+---
+
+## 🤝 Open Collaboration
+
+This repository is open to collaboration with people who want to work on **serious climate and energy problems**.
+
+Areas where help is welcome:
+
+- AI / ML (planning, optimization, forecasting)
+- Energy systems & photovoltaics
+- Carbon reduction / carbon removal concepts
+- Simulation, visualization, and physical modeling
+- Infrastructure-scale thinking
+- Technical documentation and challenge submissions
+
+If you’re interested in contributing to something with **real planetary impact**, you’re invited.
+
+---
+
+## 📬 How to Get Involved
+
+Open an **Issue** titled:
+
+`XPRIZE Collaboration – <your field>`
+
+or start a **Discussion** with:
+
+`Carbon / Energy / Climate Direction`
+
+Please include:
+- your background,
+- your area of interest,
+- how you’d like to contribute.
+
+---
+
+**The long-term objective is impact — not hype.  
+Let’s build systems that actually matter.**
+
+— Sebastian Laskowski Terraforming Planet 
+
+---
