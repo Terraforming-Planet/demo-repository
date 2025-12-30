@@ -8,7 +8,7 @@
 <div align="center">
 
 # 🌍 Terraforming-Planet ai multifuction generator lab
-### generation platform for visual learning and experimentation in terrain formation, self-sustaining photovoltaic vehicles, and planetary space
+### Generation image first test platform for visual learning and experimentation in terrain formation, self-sustaining photovoltaic vehicles, and planetary space
 
 
 # “Visualize first wisely every planet is a system, and every system can be understood.”
