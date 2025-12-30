@@ -7,8 +7,8 @@
 
 <div align="center">
 
-# 🌍 Terraforming-Planet ai image generator lab
-### An image generation platform for visual learning and experimentation in terrain formation, self-sustaining photovoltaic vehicles, and planetary space
+# 🌍 Terraforming-Planet ai multifuction generator lab
+### generation platform for visual learning and experimentation in terrain formation, self-sustaining photovoltaic vehicles, and planetary space
 
 
 # “Visualize first wisely every planet is a system, and every system can be understood.”
@@ -434,7 +434,7 @@ Toulouse, France
 **Role:**  
 Test Researcher — Mechanics & Electrical Engineering  
 
-### 🔬 OpenAI Prompts Labs — Mirror Test
+### 🔬 Discord OpenAI Prompty Lab — Mirror Test
 👉 [View the discussion and prompt tests](https://discord.com/channels/974519864045756446/1446841031986249850)
 
 ---
