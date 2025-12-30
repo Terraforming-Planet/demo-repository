@@ -426,7 +426,7 @@ In the meantime, **DALL·E 3** is available and functioning as an alternative im
 
 ### 👤 Research & Author Information
 **ORCID iD:**  
-👉 [View the organization on Orcido](https://orcid.org/0009-0007-0123-0894)
+👉 [View the organization on Orcid](https://orcid.org/0009-0007-0123-0894)
 **Affiliation:**  
 Research Institute in Astrophysics and Planetology  
 Toulouse, France  
