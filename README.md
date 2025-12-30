@@ -442,6 +442,221 @@ Test Researcher — Mechanics & Electrical Engineering
 ### 🌍 More Info — ★Terraforming Planet★ Organization
 👉 [View the organization on GitHub](https://github.com/Terraforming-Planet)
 ---
+## 🤖 Future AI Capabilities in Terraforming-Planet
+
+<details>
+<summary><strong>Click to expand: Vision of AI-powered planetary engineering</strong></summary>
+
+Terraforming-Planet is evolving beyond image generation.  
+Below is a conceptual roadmap of **future AI-powered features** designed to transform the platform into an **interactive planetary engineering and education sandbox**.
+
+---
+
+### 🧠 AI Prompt Analyzer
+**Purpose:** Teach users how to think like planetary engineers.
+
+- Analyzes user prompts before generation
+- Detects missing parameters (scale, water source, energy, latitude)
+- Explains weaknesses and strengths of the idea
+- Suggests scientifically and logically improved prompt versions
+
+> Goal: Education through feedback, not random generation.
+
+---
+
+### 🔍 AI Prompt Logic Upscaler
+**Purpose:** Improve ideas, not just visuals.
+
+- Breaks prompts into domains:
+  - geology
+  - hydrology
+  - energy systems
+  - infrastructure
+- Generates a more realistic and structured prompt (v2, v3…)
+- Helps users understand cause–effect relationships in terrain formation
+
+---
+
+### ☀️ AI Photovoltaic Energy Estimator
+**Purpose:** Connect visuals with energy reality.
+
+- Estimates symbolic PV energy potential based on:
+  - terrain type
+  - solar exposure
+  - number and type of photovoltaic machines
+- Compares energy demand vs. terrain workload
+- Suggests improvements (more PV, orbital mirrors, better placement)
+
+_Output example:_
+
+---
+
+### 🌍 AI Terraforming Comparison Mode
+**Purpose:** Learn through comparison.
+
+- Compare two or more generated planets/scenarios
+- AI evaluates:
+  - terrain stability
+  - water circulation
+  - energy sustainability
+  - habitability potential
+- Produces human-readable conclusions and trade-offs
+
+---
+
+### 📖 AI Planetary Narrator
+**Purpose:** Turn images into knowledge.
+
+From a single generated scene, AI can produce:
+- Educational explanation
+- Scientific-style report (lightweight)
+- Science-fiction narrative
+- Simplified version for students or children
+
+> One planet — multiple perspectives.
+
+---
+
+### ⚠️ AI Engineering Error Detector
+**Purpose:** Teach critical thinking.
+
+- Detects logical and physical inconsistencies:
+  - rivers without sources
+  - photovoltaic systems placed in permanent shadow
+  - lack of water retention leading to desertification
+- Explains *why* something would fail in reality
+
+---
+
+### 🧪 Long-Term Vision
+Terraforming-Planet aims to become:
+- an **AI-assisted planetary engineering laboratory**
+- a learning platform for terrain formation, energy systems, and sustainability
+- a bridge between imagination, physics, and environmental responsibility
+
+> This roadmap represents future development ideas and experimental directions.
+
+</details>
+
+## 🎥🪐 Future AI Video & 3D Simulation Capabilities
+
+<details>
+<summary><strong>Click to expand: AI video generation & real-time 3D planetary sculpting</strong></summary>
+
+Terraforming-Planet is designed as a foundation for future **AI-driven simulation, visualization, and synthetic reality systems** — extending beyond static images into video, 3D space, and interactive worlds.
+
+---
+
+### 🎬 AI-Generated Video from Text (Planetary Processes)
+**Concept:** Transform text-based planetary concepts into dynamic visual simulations.
+
+- Integration with next-generation AI video models (e.g. text → video)
+- Visualize processes such as:
+  - terrain uplift and erosion
+  - river and canal formation
+  - photovoltaic machine operations
+  - planetary climate transitions
+- Time-based storytelling:
+  - seconds → centuries → geological epochs
+
+**Use case examples:**
+- “Show 500 years of terrain evolution powered by photovoltaic machines”
+- “Simulate water redistribution on a dry planet”
+- “Visualize desert-to-green transformation over time”
+
+> Video becomes a **scientific visualization**, not cinematic fiction.
+
+---
+
+### 🧠 AI-Guided 3D Terrain Sculpting (Real-Time)
+**Concept:** Interactive AI-assisted 3D terrain formation.
+
+- Real-time AI-driven sculpting of:
+  - mountains and valleys
+  - river basins and deltas
+  - irrigation and melioration channels
+- User interacts as if shaping a living planet:
+  - brush = tectonics
+  - flow = water physics
+  - energy = photovoltaic capacity
+
+**Scale range:**
+- micro-worlds (small experimental planets)
+- full planetary surfaces
+- multi-planet systems
+- entire solar systems with orbital logic
+
+> A synthetic reality sandbox for planetary engineering.
+
+---
+
+### 🪐 Multi-Scale Planetary & Solar System Simulation
+**Concept:** From a single hill to orbital mechanics.
+
+- AI manages scale transitions:
+  - terrain → planet → system
+- Simulated parameters:
+  - gravity
+  - solar exposure
+  - orbital distance
+  - seasonal cycles
+- Energy-aware environments:
+  - solar flux impacts PV performance
+  - shadowing from moons or rings
+
+This enables **holistic system thinking**, not isolated scenes.
+
+---
+
+### 🚗 AI-Generated 3D Photovoltaic Vehicles & Structures
+**Concept:** Full AI-assisted generation of PV-integrated objects.
+
+- Generate:
+  - photovoltaic body panels
+  - vehicle chassis
+  - entire vehicles from A to Z
+- Explore:
+  - curved photovoltaic skins
+  - energy-active bodywork
+  - off-road and planetary vehicles
+- Extend beyond vehicles:
+  - PV-covered infrastructure
+  - mobile terrain machines
+  - autonomous energy-positive systems
+
+> Objects are designed as **energy systems**, not just shapes.
+
+---
+
+### 🧩 AI as a Co-Designer (Human + AI Loop)
+**Concept:** AI does not replace the user — it collaborates.
+
+- User shapes → AI stabilizes
+- User imagines → AI validates
+- User experiments → AI explains consequences
+
+The platform evolves into:
+- a **planetary design studio**
+- a **research playground**
+- an **educational synthetic universe**
+
+---
+
+### 🚀 Long-Term Vision
+Terraforming-Planet aims to merge:
+- AI image generation
+- AI video simulation
+- real-time 3D world building
+- photovoltaic and energy logic
+- environmental responsibility
+
+Into one concept:
+
+> **A synthetic reality for learning how to design sustainable worlds.**
+
+These features represent long-term research and development directions and are presented as a conceptual roadmap.
+
+</details>
 
 ### 🌍 Final Note — Terraforming Planet
 This project marks the culmination of our recent work on **Terraforming Planet** — a space where science, visualization, and engineering meet to explore how technology can shape environments for the common good.
