@@ -67,8 +67,6 @@ Its goal is to **understand processes**:
 <img width="1080" height="2460" alt="20224" src="https://github.com/user-attachments/assets/5e53dc06-7ef4-47e0-aaca-4c234bae2cf8" />
 <img width="1536" height="1024" alt="20225" src="https://github.com/user-attachments/assets/2eccfa1d-0c92-4b5d-99d5-d2af6a5e26b4" />
 
-![20221](https://github.com/user-attachments/assets/ff16707b-e9f9-46d5-9297-63edf3122e36)
-
 
 ---
 
