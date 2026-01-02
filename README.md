@@ -1,4 +1,26 @@
+## 🚀 Community Dev Challenge – Image Gen API
 
+**Terraforming-Planet** is a small experimental project built for the **Community Dev Challenge: Image Gen API**.
+
+**What it does:**
+- Generates scientific and cinematic images of terrain formation and planetary-scale engineering
+- Visualizes photovoltaic vehicles reshaping landscapes (mountains, valleys, rivers)
+- Focuses on visual learning, experimentation, and simulation concepts
+
+**How it uses the Image Gen API:**
+- Uses **GPT Image / Image Gen API** via a **Cloudflare Worker**
+- Image generation happens server-side (no API keys in the frontend)
+- Prompts are dynamically sent from the web UI to the Image Gen API
+
+**Run locally (quick):**
+
+git clone https://github.com/Terraforming-Planet/Graphic-gen-Terrain-Formation-planet-Photovoltaic-Vehicles
+cd Graphic-gen-Terrain-Formation-planet-Photovoltaic-Vehicles
+npm install
+npx wrangler dev
+
+<details>
+<summary><strong>🌍 Project vision & long description</strong></summary>
 
 <!--
   Terraforming-Planet / Organization README
@@ -788,3 +810,4 @@ Let’s build systems that actually matter.**
 — Sebastian Laskowski Terraforming Planet 
 
 ---
+</details>
