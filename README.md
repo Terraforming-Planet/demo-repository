@@ -32,17 +32,24 @@ Below is a screenshot from image generator tests:
 <img width="800" height="1460" alt="20080" src="https://github.com/user-attachments/assets/6b974130-beb9-42e3-8582-d1e2d34d81f9" />
 
 
+<img width="1536" height="1024" alt="20249" src="https://github.com/user-attachments/assets/e686cbd7-f2ce-4e2a-bfcd-6918ce108374" />
+
 ---
 “AI is not the answer. It’s the tool we use to ask better questions.”
 ![19015](https://github.com/user-attachments/assets/3fedf0de-4cd0-4a0e-8027-e0040766d161)
+
+<img width="1080" height="2460" alt="20360" src="https://github.com/user-attachments/assets/400bb373-8a35-4432-8d5f-e3302e5e4801" />
 
 “Technology serves best when it teaches before it transforms.” 
 
 ![19016](https://github.com/user-attachments/assets/15987542-6909-4c09-817d-4072d132d423)
 
+<img width="1536" height="1024" alt="20248" src="https://github.com/user-attachments/assets/6b20c3c3-7956-40ce-8d24-49ba2f131fbf" />
 “Learning planetary engineering through visualization.”
 
 # 🌍 Terraforming Planet — Image Generation Lab
+
+<img width="1536" height="1024" alt="20254" src="https://github.com/user-attachments/assets/58457fb1-fd57-458a-aca6-352ab5ac292a" />
 
 > **Experimental AI image generation laboratory**  
 > An educational and engineering project demonstrating how **GPT Image + Codex + Cloudflare Workers**
@@ -787,4 +794,4 @@ Let’s build systems that actually matter.**
 
 — Sebastian Laskowski Terraforming Planet 
 
----
+--- 
